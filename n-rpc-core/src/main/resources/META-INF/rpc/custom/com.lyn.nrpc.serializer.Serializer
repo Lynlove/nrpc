@@ -1,0 +1,4 @@
+jdkc=com.lyn.nrpc.serializer.JdkSerializer
+hessianc=com.lyn.nrpc.serializer.HessianSerializer
+jsonc=com.lyn.nrpc.serializer.JsonSerializer
+kryoc=com.lyn.nrpc.serializer.KryoSerializer

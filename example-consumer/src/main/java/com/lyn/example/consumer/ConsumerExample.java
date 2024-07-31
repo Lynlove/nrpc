@@ -2,6 +2,7 @@ package com.lyn.example.consumer;
 
 import com.lyn.example.common.model.User;
 import com.lyn.example.common.service.UserService;
+import com.lyn.nrpc.RpcApplication;
 import com.lyn.nrpc.config.RpcConfig;
 import com.lyn.nrpc.proxy.ServiceProxyFactory;
 import com.lyn.nrpc.utils.ConfigUtils;
@@ -11,9 +12,12 @@ import com.lyn.nrpc.utils.ConfigUtils;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-//        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
+        // RPC服务初始化
+        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
+        RpcApplication.init(rpc);
+
 //        System.out.println(rpc);
-        UserService userService = ServiceProxyFactory.getMockProxy(UserService.class);
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("yupi");
         User newUser = userService.getUser(user);
@@ -22,7 +26,6 @@ public class ConsumerExample {
         }else {
             System.out.println("user == null");
         }
-        long number = userService.getNumber();
-        System.out.println(number);
+
     }
 }

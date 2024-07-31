@@ -2,10 +2,12 @@ package com.lyn.nrpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import com.lyn.nrpc.RpcApplication;
 import com.lyn.nrpc.model.RpcRequest;
 import com.lyn.nrpc.model.RpcResponse;
 import com.lyn.nrpc.serializer.JdkSerializer;
 import com.lyn.nrpc.serializer.Serializer;
+import com.lyn.nrpc.serializer.SerializerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
@@ -25,8 +27,8 @@ public class ServiceProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         // 指定序列化器
-        Serializer serializer = new JdkSerializer();
-
+        final Serializer serializer = SerializerFactory.getSerializer(RpcApplication.getRpcConfig().getSerializer());
+//        System.out.println(serializer);
         // 构造请求
         RpcRequest rpcRequest = RpcRequest.builder()
                 .serviceName(method.getDeclaringClass().getName())
