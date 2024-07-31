@@ -11,7 +11,7 @@
   <dependencies>
     <dependency>
       <groupId>com.lyn</groupId>
-      <artifactId>n-rpc-easy</artifactId>
+      <artifactId>n-rpc-core</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>

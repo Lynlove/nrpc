@@ -2,24 +2,27 @@ package com.lyn.example.consumer;
 
 import com.lyn.example.common.model.User;
 import com.lyn.example.common.service.UserService;
+import com.lyn.nrpc.config.RpcConfig;
 import com.lyn.nrpc.proxy.ServiceProxyFactory;
+import com.lyn.nrpc.utils.ConfigUtils;
 
 /**
  * 简易服务消费者示例
  */
-public class EasyConsumerExample {
-
+public class ConsumerExample {
     public static void main(String[] args) {
-        // 动态代理
-        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
+//        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
+//        System.out.println(rpc);
+        UserService userService = ServiceProxyFactory.getMockProxy(UserService.class);
         User user = new User();
         user.setName("yupi");
-        // 调用
         User newUser = userService.getUser(user);
-        if (newUser != null) {
+        if (newUser != null){
             System.out.println(newUser.getName());
-        } else {
+        }else {
             System.out.println("user == null");
         }
+        long number = userService.getNumber();
+        System.out.println(number);
     }
 }

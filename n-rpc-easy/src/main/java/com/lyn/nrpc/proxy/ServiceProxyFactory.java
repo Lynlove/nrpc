@@ -1,4 +1,4 @@
-package com.lyn.example.consumer;
+package com.lyn.nrpc.proxy;
 
 import java.lang.reflect.Proxy;
 

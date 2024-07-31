@@ -1,4 +1,4 @@
-package com.lyn.example.consumer;
+package com.lyn.nrpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
