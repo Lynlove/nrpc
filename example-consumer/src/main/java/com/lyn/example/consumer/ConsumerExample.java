@@ -13,8 +13,7 @@ import com.lyn.nrpc.utils.ConfigUtils;
 public class ConsumerExample {
     public static void main(String[] args) {
         // RPC服务初始化
-        RpcConfig rpc = ConfigUtils.loadConfig(RpcConfig.class, "rpc");
-        RpcApplication.init(rpc);
+        RpcApplication.init();
 
 //        System.out.println(rpc);
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);

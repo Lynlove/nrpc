@@ -1,7 +1,10 @@
 package com.lyn.nrpc;
 
+import com.lyn.nrpc.config.RegistryConfig;
 import com.lyn.nrpc.config.RpcConfig;
 import com.lyn.nrpc.constant.RpcConstant;
+import com.lyn.nrpc.registry.RegisterFactory;
+import com.lyn.nrpc.registry.Registry;
 import com.lyn.nrpc.utils.ConfigUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +24,12 @@ public class RpcApplication {
     public static void init(RpcConfig newRpcConfig){
         rpcConfig = newRpcConfig;
         log.info("rpc init, config = {}", newRpcConfig.toString());
+
+        // 注册中心初始化
+        RegistryConfig registryConfig = rpcConfig.getRegistryConfig();
+        Registry registry = RegisterFactory.getInstance(registryConfig.getRegistry());
+        registry.init(registryConfig);
+        log.info("registry init, config = {}", registryConfig);
     }
 
     /**
