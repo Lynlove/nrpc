@@ -1,1 +1,2 @@
 etcd=com.lyn.nrpc.registry.EtcdRegistry
+zookeeper=com.lyn.nrpc.registry.ZooKeeperRegistry
