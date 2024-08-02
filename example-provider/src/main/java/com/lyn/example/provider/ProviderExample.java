@@ -4,13 +4,11 @@ import com.lyn.example.common.service.UserService;
 import com.lyn.nrpc.RpcApplication;
 import com.lyn.nrpc.config.RegistryConfig;
 import com.lyn.nrpc.config.RpcConfig;
-import com.lyn.nrpc.constant.RpcConstant;
 import com.lyn.nrpc.model.ServiceMetaInfo;
 import com.lyn.nrpc.registry.LocalRegistry;
 import com.lyn.nrpc.registry.RegisterFactory;
 import com.lyn.nrpc.registry.Registry;
-import com.lyn.nrpc.server.VertxHttpServer;
-import com.lyn.nrpc.utils.ConfigUtils;
+import com.lyn.nrpc.server.tcp.VertxTcpServer;
 
 /**
  * 简易服务提供者示例
@@ -39,7 +37,10 @@ public class ProviderExample {
         }
 
         // 启动web服务
-        VertxHttpServer httpServer = new VertxHttpServer();
-        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+//        VertxHttpServer httpServer = new VertxHttpServer();
+//        httpServer.doStart(RpcApplication.getRpcConfig().getServerPort());
+        // 启动TCP服务
+        VertxTcpServer vertxTcpServer = new VertxTcpServer();
+        vertxTcpServer.doStart(8080);
     }
 }
