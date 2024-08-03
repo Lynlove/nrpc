@@ -1,5 +1,6 @@
 package com.lyn.nrpc.config;
 
+import com.lyn.nrpc.fault.retry.RetryStrategyKeys;
 import com.lyn.nrpc.loadbalancer.LoadBalancerKeys;
 import com.lyn.nrpc.serializer.SerializerKeys;
 import lombok.Data;
@@ -49,5 +50,10 @@ public class RpcConfig {
      * 负载均衡配置
      */
     private String LoadBalancer = LoadBalancerKeys.ROUND_ROBIN;
+
+    /**
+     * 重试策略配置
+     */
+    private String retryStrategy = RetryStrategyKeys.NO;
 
 }
