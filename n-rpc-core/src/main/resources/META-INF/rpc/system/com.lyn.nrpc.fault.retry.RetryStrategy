@@ -1,2 +1,2 @@
-no=com.lyn.nprc.fault.retry.NoRetryStrategy
-fixedInterval=com.lyn.nprc.fault.retry.FixedIntervalRetryStrategy
+no=com.lyn.nrpc.fault.retry.NoRetryStrategy
+fixedInterval=com.lyn.nrpc.fault.retry.FixedIntervalRetryStrategy

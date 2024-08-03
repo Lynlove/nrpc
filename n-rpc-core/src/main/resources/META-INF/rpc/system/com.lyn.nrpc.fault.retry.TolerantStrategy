@@ -1,0 +1,4 @@
+failBack=com.lyn.nrpc.fault.tolerant.FailBackTolerantStrategy
+failFast=com.lyn.nrpc.fault.tolerant.FailFastTolerantStrategy
+failOver=com.lyn.nrpc.fault.tolerant.FailOverTolerantStrategy
+failSafe=com.lyn.nrpc.fault.tolerant.FailSafeTolerantStrategy
