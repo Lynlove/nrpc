@@ -3,6 +3,7 @@ package com.lyn.example.consumer;
 import com.lyn.example.common.model.User;
 import com.lyn.example.common.service.UserService;
 import com.lyn.nrpc.RpcApplication;
+import com.lyn.nrpc.bootstrap.ConsumerBootstrap;
 import com.lyn.nrpc.config.RpcConfig;
 import com.lyn.nrpc.proxy.ServiceProxyFactory;
 import com.lyn.nrpc.utils.ConfigUtils;
@@ -12,8 +13,8 @@ import com.lyn.nrpc.utils.ConfigUtils;
  */
 public class ConsumerExample {
     public static void main(String[] args) {
-        // RPC服务初始化
-        RpcApplication.init();
+        // 服务消费者初始化
+        ConsumerBootstrap.init();
 
 //        System.out.println(rpc);
         UserService userService = ServiceProxyFactory.getProxy(UserService.class);
